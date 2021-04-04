@@ -8,51 +8,32 @@ const IMG_URM='https://image.tmdb.org/t/p/w500'
 //variables html et autres
 const searchForm = document.querySelector('form');
 const section = document.querySelector('section');
-const value=document.getElementById("search");
-const submit=document.getElementById("submit");
-const begin=document.getElementById("begin");
-searchForm.style.display='none';
-let List=["avengers: endgame"];
-
-
-
-
-
+const value = document.getElementById("search");
+const submit = document.getElementById("submit");
+const begin = document.getElementById("begin");
+searchForm.style.display = 'none';
+let List = ["avengers: endgame"];
 
 //bouton pour rentrer une personne
 searchForm.addEventListener('submit',submitSearch);
 begin.addEventListener('begin',beginning);
   
-
-
 //bouton pour rentrer un film
 const submit_movie=document.getElementById("submit_movie");
 submit_movie.addEventListener("click",submitSearch2);
 document.getElementById('movie').style.display = "none";
 
-
-
-
 //fonctions--------------------------------------------------------------------------------------------------------------------------
-
-
 
 //fonction pour le premier film et pour recommencer le jeu
 async function beginning() {
-  List=["avengers: endgame"];
+  List = ["avengers: endgame"];
   document.getElementById('repetition').innerHTML="";
   while (section.firstChild) {
     section.removeChild(section.firstChild);
   }
-
-    
-     
       url=baseURL+'Avengers : Endgame';
       
-    
-      ;
-      
-    
          const data = await(await fetch(url)).json();
           console.log(data);
           displayResults(data);
@@ -66,20 +47,15 @@ async function beginning() {
         
 }
 
-
-
-
 //fonction pour rentrer un acteur
 
 async function submitSearch(e) {
   
   e.preventDefault();
   
-
-
   //conditions pour savoir si on est au debut du quizz ou pas.
   let result_id = document.getElementById('id_people').textContent;
-  let result=""
+  let result = ""
 
   if(result_id==""){
     result= await beginning();
@@ -141,14 +117,9 @@ async function submitSearch(e) {
     
 
     }
-
-    
     
 }
   
-
-
-
 //fonction pour recuperer les id afin de faire une boucle infini pour le quizz
 
 function getId(id_get){
@@ -198,19 +169,12 @@ function displayMovie(image,nom,date)  {
 
 }
 
-
-
-
-
-
 //fonction afficher le premier film
 
 function displayResults(data) {
     
   const movie = data.results;
-    
-  
-    
+ 
   if(movie.length === 0) {
     const para = document.createElement('p');
     para.textContent = 'No results returned.'
@@ -317,9 +281,6 @@ async function submitSearch2(e){
         document.getElementById('movie').style.display = "none";
         searchForm.style.display='block';
         document.getElementById('response').textContent="";
-
-
-
     
       }
     }
@@ -338,8 +299,6 @@ async function submitSearch2(e){
         document.getElementById('movie').style.display = "none";
         searchForm.style.display='block';
         document.getElementById('response').textContent="";
-
-
 
       }
     }
