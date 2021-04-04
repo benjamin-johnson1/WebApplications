@@ -1,0 +1,22 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+
+  img {
+    max-width: 200px;
+  }
+  
+
+.jeu {
+  color: rgb(190, 9, 9);
+}
+
+#repetition{
+  color: rgb(190, 9, 9);
+  margin-bottom: 10%;
+}
